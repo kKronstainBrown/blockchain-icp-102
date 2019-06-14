@@ -29,20 +29,20 @@ Each organization in a multi-cloud blockchain network should deploy its own CA. 
 
 You need to take a few prerequisite steps to operate your Certificate Authority:
 
-- [Configure your CLIs](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-kubectl-configure)
-- [Retrieve your Certificate Authority URL](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-url)
-- [Download your CA TLS cert](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-tls)
-- [Set up the Fabric CA client](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-fabric-ca-client)
-- [Generate certificates with your CA admin](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-enroll-admin)
+- [Configure your CLIs](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-kubectl-configure)
+- [Retrieve your Certificate Authority URL](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-url)
+- [Download your CA TLS cert](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-tls)
+- [Set up the Fabric CA client](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-fabric-ca-client)
+- [Generate certificates with your CA admin](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-enroll-admin)
 
 After you complete the prerequisite steps, you can use your CA to register new identities in the network with your organization and to generate certificates that your applications can use.
 
-- [Using the CA to deploy an orderer or peer](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-deploy-orderer-peer)
+- [Using the CA to deploy an orderer or peer](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-deploy-orderer-peer)
 
 This guide also provides some important conceptual information about operating your CA and how to use its certificates to manage a blockchain network.
 
-- [Membership Service Providers (MSPs)](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-msp)
-- [TLS certificates](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-tls)
+- [Membership Service Providers (MSPs)](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-msp)
+- [TLS certificates](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-tls)
 
 ## Prerequisites
 {: #ca-operate-prerequisites}
@@ -120,7 +120,7 @@ You need to target the CA URL for requests to generate certificates or register 
 2. Click **Workload** > **Helm Releases**.
 3. Find the name of your Helm Release and open the Helm Release details panel.
 4. Scroll down to the **Notes** section at the bottom of the panel. In the **Notes** section, you can see a set of commands to help you operate your CA deployment.
-5. If you have not already, follow the steps to configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-kubectl-configure), which you need to use to interact with your CA container.
+5. If you have not already, follow the steps to configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-kubectl-configure), which you need to use to interact with your CA container.
 6. In your CLI, run the first command in the note, which follows **1. Get the application URL by running these commands:** This command prints out the CA URL and port, which is similar to following example. Save this value as the application URL to use with subsequent commands.
 
   ```
@@ -139,7 +139,7 @@ You need to download your CA TLS certificate and pass it with along with your co
 2. Click **Workload** > **Helm Releases**.
 3. Find the name of your Helm Release and open the Helm Release details panel.
 4. Scroll down to the **Notes** section at the bottom of the panel. In the **Notes** section, you can see a set of commands to help you operate your CA deployment.
-5. If you have not already, follow the steps to configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-kubectl-configure), which you need to use to interact with your CA container.
+5. If you have not already, follow the steps to configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-kubectl-configure), which you need to use to interact with your CA container.
 6. In your CLI, run the commands in the third note, which follows **3. Get TLS certificate:** This command saves your TLS certificate as the file `tls.pem` on your local directory. You need to reference this certificate in a future command. Make note of its location.
 7. The command also converts the certificate into base64 format and print it out. The result looks similar to the string below:
 
@@ -187,7 +187,7 @@ You can use the Fabric CA client to operate your CA. These instructions explain 
   ```
   {:codeblock}
 
-4. Set the value of the `$FABRIC_CA_CLIENT_HOME` environment variable to be the path where the CA client will store the generated [MSP](/docs/services/blockchain/howto/CA_operate.html#ca-operate-msp) certificates. Ensure that you remove the configuration material that might be created by earlier attempts. If you didn't run the `enroll` command before, the `msp` folder and the `.yaml` file do not exist.
+4. Set the value of the `$FABRIC_CA_CLIENT_HOME` environment variable to be the path where the CA client will store the generated [MSP](/docs/services/blockchain/howto?topic=blockchain-ca-operate#ca-operate-msp) certificates. Ensure that you remove the configuration material that might be created by earlier attempts. If you didn't run the `enroll` command before, the `msp` folder and the `.yaml` file do not exist.
 
   ```
   export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/ca-admin
@@ -196,7 +196,7 @@ You can use the Fabric CA client to operate your CA. These instructions explain 
   ```
   {:codeblock}
 
-5. Copy the TLS cert that you [downloaded from {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-tls) to a directory where you can reference it in future commands. Ensure that you're in your `$HOME/fabric-ca-client` directory.
+5. Copy the TLS cert that you [downloaded from {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-tls) to a directory where you can reference it in future commands. Ensure that you're in your `$HOME/fabric-ca-client` directory.
 
   ```
   cd $HOME/fabric-ca-client
@@ -212,7 +212,7 @@ Before you deploy components or client applications with your CA, you need to ge
 
 You can generate certificates only by using identities that have been registered with your Certificate Authority. Provide the identity's name and secret to generate certificates. A **CA admin** identity was automatically registered for you when you deployed your CA. You can now use that admin name and password to issue an `enroll` command with the Fabric CA client to generate an MSP folder with certificates that are then used to register other peer or orderer identities.
 
-1. Ensure that you complete the steps to [set up the Fabric CA client](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-fabric-ca-client) and that `$FABRIC_CA_CLIENT_HOME` is set to the directory where you want to store your CA admin certs.
+1. Ensure that you complete the steps to [set up the Fabric CA client](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-fabric-ca-client) and that `$FABRIC_CA_CLIENT_HOME` is set to the directory where you want to store your CA admin certs.
 
   ```
   echo $FABRIC_CA_CLIENT_HOME
@@ -227,9 +227,9 @@ You can generate certificates only by using identities that have been registered
   ```
   {:codeblock}
 
-  The `<enroll_id>`and `<enroll_password>` in the command are the [CA admin user name and password](/docs/services/blockchain-icp-102/howto/CA_deploy_icp.html#ca-deploy-admin-secret) that you passed to the Kubernetes secret when you deployed the Certificate Authority. Insert the [CA URL](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-url) inside the `<ca_url_with_port>`. Leave off the `http://` at the beginning. The `<ca_name>` is the value that you provided to the `CA Name` field when you deployed the CA.
+  The `<enroll_id>`and `<enroll_password>` in the command are the [CA admin user name and password](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-deploy#ca-deploy-admin-secret) that you passed to the Kubernetes secret when you deployed the Certificate Authority. Insert the [CA URL](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-url) inside the `<ca_url_with_port>`. Leave off the `http://` at the beginning. The `<ca_name>` is the value that you provided to the `CA Name` field when you deployed the CA.
 
-  The `<ca_tls_cert_path>` is the full path your [CA TLS cert](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-tls).
+  The `<ca_tls_cert_path>` is the full path your [CA TLS cert](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-tls).
 
   A real call might look similar to the following example command:
 
@@ -244,9 +244,9 @@ You can generate certificates only by using identities that have been registered
   ```
   {:codeblock}
 
-  The `enroll` command generates a complete set of certificates, which is known as a Membership Service Provider (MSP) folder, that is located inside the directory where you set to `$HOME` path for your Fabric CA client. For example, `$HOME/fabric-ca-client/ca-admin`. For more information about MSPs and what the MSP folder contains, see [Membership Service Providers](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-msp).
+  The `enroll` command generates a complete set of certificates, which is known as a Membership Service Provider (MSP) folder, that is located inside the directory where you set to `$HOME` path for your Fabric CA client. For example, `$HOME/fabric-ca-client/ca-admin`. For more information about MSPs and what the MSP folder contains, see [Membership Service Providers](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-msp).
 
-  If the `enroll` command fails, see the [Troubleshooting topic](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-troubleshooting) for possible causes.
+  If the `enroll` command fails, see the [Troubleshooting topic](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-troubleshooting) for possible causes.
 
 You can run a tree command to verify that you have completed all of the prerequisite steps. Navigate to the directory where you stored your certificates. A tree command should generate a result similar to the following structure:
 
@@ -275,10 +275,10 @@ tree
 
 Before you deploy an orderer or peer, you need to create a configuration JSON file that contains important information about the component identity and your CA. Then, you need to pass this file to the Helm chart during configuration by using a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external} object. This file allows your orderer or peer to get the certificates that it needs from the CA to join a blockchain network. This file also contains an admin certificate that allows you to operate your component as an admin user.
 
-The following instructions provide you a [template JSON configuration file](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-config-file-template) that you can edit and save to your local file system, and take you through how to use your CA to complete this file.
+The following instructions provide you a [template JSON configuration file](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-config-file-template) that you can edit and save to your local file system, and take you through how to use your CA to complete this file.
 
 - Follow the instructions below if you are deploying an orderer on {{site.data.keyword.cloud_notm}} Private or deploying a peer to connect to a consortium that is hosted on {{site.data.keyword.cloud_notm}} Private.
-- If you want to deploy a peer to connect to Starter Plan or Enterprise Plan, follow the instructions on [Deploying peers in {{site.data.keyword.cloud_notm}} Private to connect to Starter Plan or Enterprise Plan](/docs/services/blockchain-icp-102/howto/peer_deploy_ibp.html#ibp-peer-deploy) instead. Those steps take you through how to use you CA on {{site.data.keyword.blockchainfull_notm}} Platform to deploy our peer on {{site.data.keyword.cloud_notm}} Private.
+- If you want to deploy a peer to connect to Starter Plan or Enterprise Plan, follow the instructions on [Deploying peers in {{site.data.keyword.cloud_notm}} Private to connect to Starter Plan or Enterprise Plan](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-deploy#ibp-peer-deploy) instead. Those steps take you through how to use you CA on {{site.data.keyword.blockchainfull_notm}} Platform to deploy our peer on {{site.data.keyword.cloud_notm}} Private.
 
 ### Configuration file
 {: #ca-operate-config-file-template}
@@ -322,9 +322,9 @@ Copy this entire file into a text editor where you can edit it and save it to yo
 
 First, we need to provide the connection information of your CA on {{site.data.keyword.cloud_notm}} Private. Use the following information to complete values in the `"component"` section of the file:
 
-- The `"cahost"` and `"caport"` values are the URL and port from the [CA URL](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-url). For example, if your CA URL is http://9.30.94.174:30167, the value of the `"cahost"` would be `9.30.94.174` and the `"caport"` would be `30167`.
-- The `"caname"` is the name of the CA that was specified when you deploy the CA Helm chart. You referenced the CA name in your command when you enrolled by using the [CA admin identity](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-enroll-admin).
-- The `"cacert"` is the base64-encoded TLS certificate of your CA. [Retrieve your CA's TLS certificate](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-tls) from your {{site.data.keyword.cloud_notm}} Private console by using the note in your Helm release, and insert the base64 output of the note commands in the following section.
+- The `"cahost"` and `"caport"` values are the URL and port from the [CA URL](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-url). For example, if your CA URL is http://9.30.94.174:30167, the value of the `"cahost"` would be `9.30.94.174` and the `"caport"` would be `30167`.
+- The `"caname"` is the name of the CA that was specified when you deploy the CA Helm chart. You referenced the CA name in your command when you enrolled by using the [CA admin identity](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-enroll-admin).
+- The `"cacert"` is the base64-encoded TLS certificate of your CA. [Retrieve your CA's TLS certificate](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-tls) from your {{site.data.keyword.cloud_notm}} Private console by using the note in your Helm release, and insert the base64 output of the note commands in the following section.
   ```
   "catls": {
     "cacert": ""
@@ -351,18 +351,18 @@ First, we need to provide the connection information of your CA on {{site.data.k
 
 After retrieving your Certificate Authority connection information, you need to use the Fabric CA client to complete several operational steps:
 
-1. [Register the new component with your CA](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-register-component).
+1. [Register the new component with your CA](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-register-component).
 
-2. You also need to [register a component administrator](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-register-admin) and then [generate certificates for the component admin](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-enroll-admin) inside an MSP folder. You do not have to complete this step if you have already registered an admin to deploy another component.
+2. You also need to [register a component administrator](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-register-admin) and then [generate certificates for the component admin](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-enroll-admin) inside an MSP folder. You do not have to complete this step if you have already registered an admin to deploy another component.
 
-3. [Register the new component with your TLS CA](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-tls-register-component).
+3. [Register the new component with your TLS CA](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-tls-register-component).
 
 ### Registering the component identity with the CA
 {: #ca-operate-register-component}
 
 If you want to form a consortium by deploying an ordering service and adding orgs to it, or to deploy peers and join them to channels, you first need to register the component identity with your CA. Your component deployment can then generate certificates that are necessary for the peer or orderer to participate in a network.
 
-1. [Generate certificates with your CA admin](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-enroll-ca-admin) by using the Fabric CA client. Use these admin certificates to issue the following commands. Ensure that `$FABRIC_CA_CLIENT_HOME` is set to `$HOME/fabric-ca-client/ca-admin`.
+1. [Generate certificates with your CA admin](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-enroll-ca-admin) by using the Fabric CA client. Use these admin certificates to issue the following commands. Ensure that `$FABRIC_CA_CLIENT_HOME` is set to `$HOME/fabric-ca-client/ca-admin`.
 
   ```
   echo $FABRIC_CA_CLIENT_HOME
@@ -572,7 +572,7 @@ export FABRIC_CA_CLIENT_HOME=$HOME/fabric-ca-client/tlsca-admin
 ```
 {:codeblock}
 
-Run the command below to enroll as your admin against the TLS CA. The command is the same as you used to enroll as your [CA admin](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-enroll-ca-admin), only you will use the CA TLS instance name that you specified during your [CA configuration.](/docs/services/blockchain-icp-102/howto/CA_deploy_icp.html#ca-deploy-configuration-parms) Be sure to use the same `ca-admin-name` and `ca-admin-password` in your CA secret.
+Run the command below to enroll as your admin against the TLS CA. The command is the same as you used to enroll as your [CA admin](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-enroll-ca-admin), only you will use the CA TLS instance name that you specified during your [CA configuration.](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-deploy#ca-deploy-configuration-parms) Be sure to use the same `ca-admin-name` and `ca-admin-password` in your CA secret.
 
 ```
 fabric-ca-client enroll -u https://<enroll_id>:<enroll_password>@<ca_url_with_port> --caname <tls_ca_name> --tls.certfiles <ca_tls_cert_path>
@@ -615,7 +615,7 @@ You need to provide a CSR hostname to deploy an orderer or peer. This hostname i
 #### Locating the value of the cluster proxy IP address
 {: #ca-operate-cluster-proxy-ip}
 
-If you want to deploy an orderer or peer on the same {{site.data.keyword.cloud_notm}} Private cluster on which you deployed your CA, ensure that you have a [Cluster administrator](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.1.2/user_management/assign_role.html){: external} role on the {{site.data.keyword.cloud_notm}} Private cluster where the orderer or peer will be deployed. Then, enter the same proxy IP that you used when you [configured for your CA](/docs/services/blockchain-icp-102/howto/CA_deploy_icp.html#ca-deploy-configuration-parms). If you want to deploy the orderer or peer on a different cluster, you can retrieve the value of the cluster proxy IP address from the {{site.data.keyword.cloud_notm}} Private console by completing the following steps:
+If you want to deploy an orderer or peer on the same {{site.data.keyword.cloud_notm}} Private cluster on which you deployed your CA, ensure that you have a [Cluster administrator](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.1.2/user_management/assign_role.html){: external} role on the {{site.data.keyword.cloud_notm}} Private cluster where the orderer or peer will be deployed. Then, enter the same proxy IP that you used when you [configured for your CA](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-deploy#ca-deploy-configuration-parms). If you want to deploy the orderer or peer on a different cluster, you can retrieve the value of the cluster proxy IP address from the {{site.data.keyword.cloud_notm}} Private console by completing the following steps:
 
 1. Log in to the {{site.data.keyword.cloud_notm}} Private console. In the left navigation panel, click **Platform** and then **Nodes** to view the nodes that are defined in the cluster.
 2. Click the node with the role `proxy` and then copy the value of the `Host IP` from the table.
@@ -701,7 +701,7 @@ After you completed all the steps above, your updated configuration file might l
 
 
 
-You can leave the other fields blank. Save this file and you need to use it when you deploy an [orderer](/docs/services/blockchain-icp-102/howto/orderer_deploy_icp.html) or [peer](/docs/services/blockchain-icp-102/howto/peer_deploy_ibp.html).
+You can leave the other fields blank. Save this file and you need to use it when you deploy an [orderer](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-deploy) or [peer](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-deploy).
 
 ## Membership Service Providers (MSPs)
 {: #ca-operate-msp}
@@ -717,7 +717,7 @@ MSP folders must have a defined structure to be used by Fabric components. The F
 
 You can also build an MSP folder that the fabric-ca-client can reference by using the Network Monitor and the Swagger APIs.
 
-- **cacerts** and **intermediatecerts**: You can fetch these certificates with the [Swagger APIs](/docs/services/blockchain/howto/swagger_apis.html#ibp-swagger) by issuing a `Get` request to the MSP API.
+- **cacerts** and **intermediatecerts**: You can fetch these certificates with the [Swagger APIs](/docs/services/blockchain/howto?topic=blockchain-ibp-swagger#ibp-swagger) by issuing a `Get` request to the MSP API.
 - **signCerts** and **keystore**: You can generate these certificates by clicking the **Generate Certificates** button on the "Certificate Authority" panel. A pop-up window opens with two certificates listed. Copy and store the **Certificate** in signCerts and the **Private key** in keystore. Keep these certificates in a safe place because they are not stored on the platform.
 
 Many Fabric components contain additional information inside their MSP folder. For example, if you operate a remote peer, you might see the following folders:
@@ -731,7 +731,7 @@ For more information about the structure of MSPs, see [Membership](https://hyper
 ## Viewing the CA logs
 {: #ca-operate-view-logs}
 
-Component logs can be viewed from the command line by using the [`kubectl CLI commands`](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-kubectl-configure) or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster.
+Component logs can be viewed from the command line by using the [`kubectl CLI commands`](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-kubectl-configure) or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster.
 
 - Use the `kubectl logs` command to view the container logs inside the pod. If you are unsure of your pod name, run the following command to view your list of pods.
 

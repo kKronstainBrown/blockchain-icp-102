@@ -28,15 +28,15 @@ After you set up an {{site.data.keyword.blockchainfull}} Platform for {{site.dat
 You need to complete a few prerequisite steps from your {{site.data.keyword.cloud_notm}} Private Cluster to operate your peer.
 
 **Prerequisites:**
-- [Configure your CLIs](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-kubectl-configure)
-- [Retrieve your peer endpoint information](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-endpoint)
-- [Download your peer TLS cert](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-tls-cert)
+- [Configure your CLIs](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-kubectl-configure)
+- [Retrieve your peer endpoint information](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-endpoint)
+- [Download your peer TLS cert](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-tls-cert)
 
 You can then use one of the following methods to operate your peer.
 
 **Operations Paths:**
-- [Using the Fabric SDKs](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-operate-with-sdk)
-- [Using the command line](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-cli-operate)
+- [Using the Fabric SDKs](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-operate-with-sdk)
+- [Using the command line](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-cli-operate)
 
 The Fabric SDKs are the recommended path, although the instructions assume familiarity with the operation of the SDK. If you prefer to use the command line, you can use the Fabric peer client.
 
@@ -44,7 +44,7 @@ The Fabric SDKs are the recommended path, although the instructions assume famil
 It is recommended that you deploy at least two instances of the peer Helm chart for [high availability](peer_icp.html#high-availability). Therefore, you need to follow these operations steps once for each peer. When you are ready to invoke and query chaincode from your application, connect to both peers to ensure that your [applications are highly available](../best_practices.html#best-practices-app-ha-app).
 -->
 
-**Note**: An {{site.data.keyword.blockchainfull_notm}} Platform peer does not have access to the full functionality or support of peers that are hosted on the {{site.data.keyword.blockchainfull_notm}} Platform. As a result, you cannot use the Network Monitor to operate a peer on {{site.data.keyword.cloud_notm}} Private. Before you start running peers, ensure that you review the [considerations and limitations](/docs/services/blockchain-icp-102/ibp-for-icp-about.html#ibp-icp-about-considerations).
+**Note**: An {{site.data.keyword.blockchainfull_notm}} Platform peer does not have access to the full functionality or support of peers that are hosted on the {{site.data.keyword.blockchainfull_notm}} Platform. As a result, you cannot use the Network Monitor to operate a peer on {{site.data.keyword.cloud_notm}} Private. Before you start running peers, ensure that you review the [considerations and limitations](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-ibp-icp-about#ibp-icp-about-considerations).
 
 ## Prerequisites
 {: #ibp-peer-operate-prerequisites}
@@ -125,7 +125,7 @@ You need to target your peer endpoint from the SDK or the Fabric CA client to jo
 2. Click **Workload** > **Helm Releases**.
 3. Find the name of your Helm Release and open the Helm Release details panel.
 4. Scroll down to the **Notes** section at the bottom of the panel. In the **Notes** section, you can see a set of commands to help you operate your peer deployment.
-5. Follow the steps configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-kubectl-configure) if you have not already. You will use `kubectl` to interact with your peer container.
+5. Follow the steps configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-kubectl-configure) if you have not already. You will use `kubectl` to interact with your peer container.
 6. In your CLI, run the first command in the note, which follows **1. Get the application URL by running these commands:** This command will print out the peer URL and port, which is similar to following example. Save this URL for future commands.
 
   ```
@@ -133,7 +133,7 @@ You need to target your peer endpoint from the SDK or the Fabric CA client to jo
   ```
   {:codeblock}
 
-**Note:** If you deploy your peer behind a firewall, you need to open a passthru to enable the network on the platform to complete a TlS handshake with your peer. You only need to enable a passthru for the Node port bound to port 7051 of your peer. For more information, see [finding your peer endpoint information](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-endpoint).
+**Note:** If you deploy your peer behind a firewall, you need to open a passthru to enable the network on the platform to complete a TlS handshake with your peer. You only need to enable a passthru for the Node port bound to port 7051 of your peer. For more information, see [finding your peer endpoint information](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-endpoint).
 
 ### Download your peer TLS cert
 {: #ibp-peer-operate-tls-cert}
@@ -144,7 +144,7 @@ You need to download your peer TLS certificate and pass it to your commands to c
 2. Click **Workload** > **Helm Releases**.
 3. Find the name of your Helm Release and open the Helm Release details panel.
 4. Scroll down to the **Notes** section at the bottom of the panel. In the **Notes** section, you can see a set of commands to help you operate your peer deployment.
-5. Follow the steps configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-kubectl-configure) if you have not already. You will use `kubectl` to interact with your peer container.
+5. Follow the steps configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-kubectl-configure) if you have not already. You will use `kubectl` to interact with your peer container.
 6. In your CLI, run the first command in the note, which follows **3. Get peer TLS root cert file**. This command will save your TLS certificate as the file `cacert.pem` on your local machine.
 7. Move the certificate to location where you can reference it in future commands, and rename it `peertls.pem`.
 
@@ -178,12 +178,12 @@ It is recommended that you use version 1.4.0 of the Node SDK.
 
 Your peer is deployed with the signCert of your peer admin inside. This allows you to use peer admin's certificates and MSP folder to operate the peer.
 
-Locate the certificates you created when you [enrolled your peer admin](/docs/services/blockchain-icp-102/howto/peer_deploy_ibp.html#ibp-peer-deploy-enroll-admin). If you used the example commands, you can find you peer admin MSP folder at `$HOME/fabric-ca-client/peer-admin`.
+Locate the certificates you created when you [enrolled your peer admin](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-deploy#ibp-peer-deploy-enroll-admin). If you used the example commands, you can find you peer admin MSP folder at `$HOME/fabric-ca-client/peer-admin`.
   - You can build the peer admin user context with the SDK by using the signCert and private key in the MSP folder. You can find those keys in the following locations:
     - The signCert can be found in the **signcerts** folder: `$HOME/fabric-ca-client/peer-admin/msp/signcerts`
     - The private key can be found in the **keystore:** folder: `$HOME/fabric-ca-client/peer-admin/msp/keystore`
 
-You can also use the SDK to generate the peer admin signCert and private key by using the endpoint information of CA on Starter Plan or Enterprise Plan and your [peer admin username and password](/docs/services/blockchain-icp-102/howto/peer_deploy_ibp.html#ibp-peer-deploy-register-admin).
+You can also use the SDK to generate the peer admin signCert and private key by using the endpoint information of CA on Starter Plan or Enterprise Plan and your [peer admin username and password](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-deploy#ibp-peer-deploy-register-admin).
 
 ### Uploading the peer admin signCert to Starter Plan or Enterprise Plan
 {: #ibp-peer-operate-upload-sdk}
@@ -195,7 +195,7 @@ You need to upload the peer administrator signCert to the network on {{site.data
 ### Passing your peer's TLS cert to the SDK
 {: #ibp-peer-operate-download-tlscert}
 
-You need to reference the TLS cert of your peers to authenticate communication with your SDK. Locate the TLS cert that you [downloaded from your peer container](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-tls-cert) and save it where it can be referenced by your application. If you used the example commands, you can find you peer TLS certificate at `$HOME/fabric-ca-client/peer-tls/peertls.pem`. You can then import the TLS cert into your application by using a simple read file command.
+You need to reference the TLS cert of your peers to authenticate communication with your SDK. Locate the TLS cert that you [downloaded from your peer container](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-tls-cert) and save it where it can be referenced by your application. If you used the example commands, you can find you peer TLS certificate at `$HOME/fabric-ca-client/peer-tls/peertls.pem`. You can then import the TLS cert into your application by using a simple read file command.
 
 ```
 var peerTLSCert = fs.readFileSync(path.join(__dirname, './peertls.pem'));
@@ -205,7 +205,7 @@ var peerTLSCert = fs.readFileSync(path.join(__dirname, './peertls.pem'));
 ### Providing the peer endpoint information to the SDK
 {: #ibp-peer-operate-SDK-endpoints}
 
-Find the [endpoint information of your peer](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-endpoint) and provide it to the SDK by declaring a new peer variable or by updating your Connection Profile. The following example defines the peer as an endpoint on your fabric network and passes it the TLS cert that you imported.
+Find the [endpoint information of your peer](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-endpoint) and provide it to the SDK by declaring a new peer variable or by updating your Connection Profile. The following example defines the peer as an endpoint on your fabric network and passes it the TLS cert that you imported.
 
 ```
 var peer = fabric_client.newPeer('grpcs://9.30.94.174:30167', { pem:  Buffer.from(peerTLSCert).toString(), 'ssl-target-name-override': null});
@@ -223,9 +223,9 @@ You need to specify a `ssl-target-name-override` of `<something>.blockchain.com`
 
 Your organization needs to be a member of a channel before you can join the channel with your peer.
 
-  - You can start a new channel for the peer. If you are the channel initiator, you can automatically include your organization during [channel creation](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel).
+  - You can start a new channel for the peer. If you are the channel initiator, you can automatically include your organization during [channel creation](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel).
 
-  - Another member of the blockchain network can also add your organization to an existing channel by using a [channel update](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel).
+  - Another member of the blockchain network can also add your organization to an existing channel by using a [channel update](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).
 
     After your organization is added to a channel, you need to add your peer's signCert to the channel so that other members can verify your digital signature during transactions. The peer uploads its signCert during installation, which means you only need to synchronize the certificate to the channel. On the "Channels" screen of the Network Monitor, locate the channel that your organization joins and select **Sync Certificate** from the drop-down list under the **Action** header. This action synchronizes the certificates across all the peers on the channel. You might need to wait for a few minutes so that the channel sync can complete before you issue `join channel` commands.
 
@@ -248,7 +248,7 @@ Only one member of the channel needs to instantiate or update chaincode. Therefo
 
 You can also operate your peer from the command line by using the Fabric `peer` client.
 
-Your peer was deployed with the signCert of your peer admin inside, allowing that identity to operate the peer. The following instructions will use the peer admin MSP folder that was generated when you [deployed your peer](/docs/services/blockchain-icp-102/howto/peer_deploy_ibp.html#ibp-peer-deploy-register-admin) for joining the peer to a channel, install a chaincode on the peer, and then instantiating the chaincode on a channel.
+Your peer was deployed with the signCert of your peer admin inside, allowing that identity to operate the peer. The following instructions will use the peer admin MSP folder that was generated when you [deployed your peer](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-deploy#ibp-peer-deploy-register-admin) for joining the peer to a channel, install a chaincode on the peer, and then instantiating the chaincode on a channel.
 
 ### Downloading the Fabric peer client
 {: #ibp-peer-operate-download-fabric-client}
@@ -297,7 +297,7 @@ cd $HOME/fabric-ca-client/peer-admin/msp
 ```
 {:codeblock}
 
-Before you can operate the peer, you need to do some management of the certificates on your local machine. For example, you'll need to upload the peer admin signCert to Starter Plan or Enterprise Plan and to ensure that you can access the TLS certificates from the peer and your network on {{site.data.keyword.cloud_notm}}. For more information about the certificates to use and the tasks to perform, see [Managing certificates on {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates).
+Before you can operate the peer, you need to do some management of the certificates on your local machine. For example, you'll need to upload the peer admin signCert to Starter Plan or Enterprise Plan and to ensure that you can access the TLS certificates from the peer and your network on {{site.data.keyword.cloud_notm}}. For more information about the certificates to use and the tasks to perform, see [Managing certificates on {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates).
 
 1. Move your peer admin's signCert to a new folder that is named `admincerts`:
 
@@ -320,9 +320,9 @@ Before you can operate the peer, you need to do some management of the certifica
 
     **Note**: It is important to sync the channel certificate before the peer joins the channel or instantiates chaincode on the channel. You might need to wait for a few minutes so that channel sync can complete before you issue any join channel or instantiate chaincode commands.
 
-3. Ensure that you [downloaded your peer TLS certificate](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-tls-cert) and can reference it from your command line. If you followed the example commands, you can find this TLS cert in the `$HOME/fabric-ca-client/peer-tls/peertls.pem` file.
+3. Ensure that you [downloaded your peer TLS certificate](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-tls-cert) and can reference it from your command line. If you followed the example commands, you can find this TLS cert in the `$HOME/fabric-ca-client/peer-tls/peertls.pem` file.
 
-4. You also need to reference the TLS cert you used to communicate with your Starter Plan or Enterprise Plan CA when you [enrolled your peer admin](/docs/services/blockchain-icp-102/howto/peer_deploy_ibp.html#ibp-peer-deploy-enroll-admin). If you followed the example commands in this documentation, you can find the TLS cert in the `$HOME/fabric-ca-client/tls-ibp/tls.pem` file.
+4. You also need to reference the TLS cert you used to communicate with your Starter Plan or Enterprise Plan CA when you [enrolled your peer admin](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-deploy#ibp-peer-deploy-enroll-admin). If you followed the example commands in this documentation, you can find the TLS cert in the `$HOME/fabric-ca-client/tls-ibp/tls.pem` file.
 
 You can run a tree command to verify that you have completed these steps. Navigate to the directory where you stored your certificates. A tree command should generate a result similar to the following structure:
 ```
@@ -389,7 +389,7 @@ After you move all of our certificates to the necessary location, you need to se
 
   - Find the name of your organization by searching for **organizations**. This should be the same organization as you use to register your peer. You can find your organization's name together with its associated `mspid`. Make a note of the value of the `mspid`.
 
-2. [Find your peer's endpoint information](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-endpoint). You need to use the peer endpoint to set the `PEERADDR` environment variable. Ensure that you exclude the `http://` at the beginning.
+2. [Find your peer's endpoint information](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-endpoint). You need to use the peer endpoint to set the `PEERADDR` environment variable. Ensure that you exclude the `http://` at the beginning.
 
 3. Run the following commands to set the environment variables.
 
@@ -406,7 +406,7 @@ After you move all of our certificates to the necessary location, you need to se
   {:codeblock}
 
   Replace the fields with your own information.
-    - Replace `<full_path_to_config_folder>` with the config folder that was created when you [downloaded the peer client](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-download-fabric-client).
+    - Replace `<full_path_to_config_folder>` with the config folder that was created when you [downloaded the peer client](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-download-fabric-client).
     - Replace `<CHANNEL_NAME>` with the name of the channel that the peer joins.
     - Replace `<CC_NAME>` with any name to refer to your chaincode.
     - Replace `<PEERADDR>` with the peer endpoint from the previous step for the peer you are currently using.
@@ -442,14 +442,14 @@ After you move all of our certificates to the necessary location, you need to se
 
 Before you can run the CLI commands to join the peer to a channel, your organization needs to be added to a channel in the network in one of the following ways.
 
-  - You can start a new channel for the peer. As the channel initiator, you can automatically include your organization during [channel creation](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-creating-a-channel).
-  - Another member of the blockchain network can also add your organization to an existing channel by using a [channel update](/docs/services/blockchain/howto/create_channel.html#ibp-create-channel-updating-a-channel).
+  - You can start a new channel for the peer. As the channel initiator, you can automatically include your organization during [channel creation](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-creating-a-channel).
+  - Another member of the blockchain network can also add your organization to an existing channel by using a [channel update](/docs/services/blockchain/howto?topic=blockchain-ibp-create-channel#ibp-create-channel-updating-a-channel).
 
     After your organization is added to a channel, you need to add your peer's signCert to the channel so that other members can verify your digital signature during transactions. The peer uploads its signCert during installation, so that you need to synchronize only the certificate to the channel. On the "Channels" screen of the Network Monitor, locate the channel that your organization joins and select **Sync Certificate** from the drop-down list under the **Action** header. This action synchronizes the certificates across all the peers on the channel.
 
     **Note:** If your {{site.data.keyword.cloud_notm}} Private peer that connects to a Starter Plan or Enterprise Plan network is part of the same organization as another peer that is added with the Network Monitor, you can view only new blocks that are added to the channel, chaincode that is instantiated, and other channel updates in the "Channels" screen of your Network Monitor. This is because the Network Monitor gathers information on the "Channels" screen from your peer, and does not have visibility to peers outside of {{site.data.keyword.cloud_notm}}. If none of your peers use the Private Data feature, the information in the Network Monitor is the same for one peer in an organization as for the other peer.
 
-1. Make sure that you have set the [environment variables in your CLI](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-environment-variables).
+1. Make sure that you have set the [environment variables in your CLI](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-environment-variables).
 
 2. Fetch the genesis block of the channel to build the channel ledger on your peer. Note that `$HOME/fabric-ca-client/tls-ibp/tls.pem` represents the path to your Starter Plan or Enterprise Plan TLS certificate. If your path is different, make sure to set the correct one.
 
@@ -520,7 +520,7 @@ When this command completes successfully, you should see something similar to:
 2018-07-06 18:39:01.142 UTC [main] main -> INFO 003 Exiting.....
 ```
 
-**Note:** If this chaincode has already been installed and instantiated on another peer running in Starter or Enterprise Plan, there are additional steps that must be performed before installing the chaincode on the peer. See this [troubleshooting topic](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-troubleshooting) for more instructions on how to avoid errors associated with how this chaincode is installed.
+**Note:** If this chaincode has already been installed and instantiated on another peer running in Starter or Enterprise Plan, there are additional steps that must be performed before installing the chaincode on the peer. See this [troubleshooting topic](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-troubleshooting) for more instructions on how to avoid errors associated with how this chaincode is installed.
 
 ### Using the CLI to instantiate chaincode on a channel
 {: #ibp-peer-operate-toolcontainer-instantiate-cc}
@@ -553,12 +553,12 @@ Complete the following steps to update your chaincode:
 2. After installing the new chaincode on all the peers in the channel, use the Network Monitor or the
 [peer chaincode upgrade](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html#peer-chaincode-upgrade){: external} command to update the channel to use the new chaincode.
 
-See step two of these [instructions](/docs/services/blockchain/howto/install_instantiate_chaincode.html#install-instantiate-chaincode-update-cc) for more information about using the "Install Code" panel of Network Monitor to update the chaincode on the channel.
+See step two of these [instructions](/docs/services/blockchain/howto?topic=blockchain-install-instantiate-chaincode#install-instantiate-chaincode-update-cc) for more information about using the "Install Code" panel of Network Monitor to update the chaincode on the channel.
 
 ## Viewing the peer logs
 {: #ibp-peer-operate-view-logs}
 
-Component logs can be viewed from the command line by using the [`kubectl` CLI commands](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-kubectl-configure) or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster.
+Component logs can be viewed from the command line by using the [`kubectl` CLI commands](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-kubectl-configure) or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster.
 
 - Use the `kubectl logs` command to view the container logs inside the pod. If you are unsure of your pod name, run the following command to view your list of pods.
 
@@ -602,7 +602,7 @@ This error can be caused if there's an inconsistency among the peers that are ru
 This error can occur if the Network Monitor UI was used to install and instantiate chaincode on a peer running in Starter or Enterprise plan and then later you install the chaincode on a peer running on {{site.data.keyword.cloud_notm}} Private. The error occurs on the `invoke` request because the resulting chaincode paths on the peers are different.
 
 **Solution:**
-If you want to run chaincode on peers in both the {{site.data.keyword.cloud_notm}}, such as Starter or Enterprise Plan, and {{site.data.keyword.cloud_notm}} Private, do not use the Network Monitor UI to install the chaincode. Instead, package chaincode with the [`peer chaincode package`](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html?highlight=peer%20chaincode%20package#peer-chaincode-package){: external} command and then install the package on all peers by running the [`peer chaincode install`](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate-toolcontainer-install-cc) command.
+If you want to run chaincode on peers in both the {{site.data.keyword.cloud_notm}}, such as Starter or Enterprise Plan, and {{site.data.keyword.cloud_notm}} Private, do not use the Network Monitor UI to install the chaincode. Instead, package chaincode with the [`peer chaincode package`](https://hyperledger-fabric.readthedocs.io/en/release-1.4/commands/peerchaincode.html?highlight=peer%20chaincode%20package#peer-chaincode-package){: external} command and then install the package on all peers by running the [`peer chaincode install`](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate-toolcontainer-install-cc) command.
 
 If chaincode is already installed and instantiated on a channel before you attempt to install the chaincode on an {{site.data.keyword.cloud_notm}} Private peer, you need to complete the following steps to avoid the problem:
 

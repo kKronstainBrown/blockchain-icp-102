@@ -25,9 +25,9 @@ subcollection: blockchain
 {{site.data.keyword.blockchainfull}} Platform provides several avenues for troubleshooting problems and getting support, which depend on the {{site.data.keyword.blockchainfull_notm}} Platform offerings that you use.
 {:shortdesc}
 
-For all {{site.data.keyword.blockchainfull_notm}} Platform offerings, it is recommended to firstly use [free digital support resources](/docs/services/blockchain-icp-102/ibmblockchain_support.html#blockchain-support-resources) to troubleshoot problems and get help from {{site.data.keyword.IBM_notm}} and the Hyperledger Fabric Community. If you use a Starter or Enterprise plan network, you can navigate to the "Support" screen in your Network Monitor, which contains links to these resources.
+For all {{site.data.keyword.blockchainfull_notm}} Platform offerings, it is recommended to firstly use [free digital support resources](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-blockchain-support#blockchain-support-resources) to troubleshoot problems and get help from {{site.data.keyword.IBM_notm}} and the Hyperledger Fabric Community. If you use a Starter or Enterprise plan network, you can navigate to the "Support" screen in your Network Monitor, which contains links to these resources.
 
-If your problem cannot be solved by any of the [free digital support resources](/docs/services/blockchain-icp-102/ibmblockchain_support.html#blockchain-support-resources), consider the following approaches to get support for the offerings that you use.
+If your problem cannot be solved by any of the [free digital support resources](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-blockchain-support#blockchain-support-resources), consider the following approaches to get support for the offerings that you use.
 
 - **{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private**
   If you have purchased an {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private license and you want to contact customer support, see [Accessing the {{site.data.keyword.IBM_notm}} Support Community and opening a support ticket](http://www.ibm.com/support/docview.wss?uid=ibm10740041){: external}.
@@ -41,7 +41,7 @@ If your problem cannot be solved by any of the [free digital support resources](
 {: #blockchain-support-resources}
 
 **{{site.data.keyword.blockchainfull_notm}} for {{site.data.keyword.cloud_notm}} Private docs**
-  [{{site.data.keyword.blockchainfull_notm}} for {{site.data.keyword.cloud_notm}} Private docs](/docs/services/blockchain-icp-102/ibp_for_icp_deployment_guide.html#get-started-icp), provides guidance on how to start with {{site.data.keyword.blockchainfull_notm}} Platform. You can find corresponding topics from the left navigator or search any term with the search function on the top.
+  [{{site.data.keyword.blockchainfull_notm}} for {{site.data.keyword.cloud_notm}} Private docs](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-get-started-icp#get-started-icp), provides guidance on how to start with {{site.data.keyword.blockchainfull_notm}} Platform. You can find corresponding topics from the left navigator or search any term with the search function on the top.
 
 **{{site.data.keyword.IBM_notm}} dWAnswers**  
   [{{site.data.keyword.IBM_notm}} dWAnswers](https://developer.ibm.com/answers/smartspace/blockchain/index.html){: external} is a community forum for users of {{site.data.keyword.blockchainfull_notm}} Platform and Hyperledger Fabric, which is monitored by experts from {{site.data.keyword.IBM_notm}} among others. You can search for answers to previously posed questions or submit a new question. Be sure to include the keyword **blockchain** in your new question.
@@ -59,9 +59,9 @@ For issues that are related to {{site.data.keyword.blockchainfull_notm}} Platfor
 If you need help with Hyperledger Fabric, Hyperledger Composer, or your applications, please make use of the community resources above or engage [{{site.data.keyword.blockchainfull_notm}} Services](https://www.ibm.com/blockchain/services){: external}. It is recommended to use Hyperledger Composer solely for demos and proofs of concept. {{site.data.keyword.IBM_notm}} does not provide support for networks that use Hyperledger Composer in production, including the Composer CLI, JavaScript APIs, REST server, and Web Playground.
 {:note}
 
-The response to your support case depends on your [{{site.data.keyword.cloud_notm}} support plan](https://cloud.ibm.com/docs/get-support/index.html#support-plans){: external}.
+The response to your support case depends on your [{{site.data.keyword.cloud_notm}} support plan](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.
 
-- If you have purchased **Premium Support** or **Advanced Support**, you can specify a severity level on your ticket from Sev-1 to Sev-4. Sev-1 is the highest level of severity. Support cases with higher severity levels indicates more urgency and will be responded to more quickly by the support team. For more information, see [{{site.data.keyword.cloud_notm}} support plan offerings](https://cloud.ibm.com/docs/get-support/index.html#support-plans){: external}.  
+- If you have purchased **Premium Support** or **Advanced Support**, you can specify a severity level on your ticket from Sev-1 to Sev-4. Sev-1 is the highest level of severity. Support cases with higher severity levels indicates more urgency and will be responded to more quickly by the support team. For more information, see [{{site.data.keyword.cloud_notm}} support plan offerings](/docs/get-support?topic=get-support-support-plans#support-plans){: external}.  
 - If you do not purchase support, your {{site.data.keyword.cloud_notm}} Pay-As-You-Go or Subscription account comes with a free **Basic Support** plan. In this case, your support case will automatically be registered Sev-4.
 
 Follow these steps to submit a support case.

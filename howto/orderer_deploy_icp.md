@@ -22,7 +22,7 @@ subcollection: blockchain
 Orderers authenticate clients, order transactions, and broadcast transactions in a blockchain network with the orderer component. For more information about orderers and the role that they play in a blockchain network, see [Overview on blockchain components](/docs/services/blockchain-icp-102?topic=blockchain-blockchain-component-overview).
 {:shortdesc}
 
-Before you deploy an ordering service, review the [Considerations and limitations](/docs/services/blockchain-icp-102/ibp-for-icp-about.html#ibp-icp-about-considerations).
+Before you deploy an ordering service, review the [Considerations and limitations](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-ibp-icp-about#ibp-icp-about-considerations).
 
 ## Resources required
 {: #icp-orderer-deploy-resources-required}
@@ -53,18 +53,18 @@ If you do not use dynamic provisioning, [Persistent Volumes](https://kubernetes.
 ## Prerequisites for deploying an orderer
 {: #icp-orderer-deploy-prerequisites}
 
-1. Before you can install an orderer on {{site.data.keyword.cloud_notm}} Private, you must [install {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/ICP_setup.html#icp-setup) and [install the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart](/docs/services/blockchain-icp-102/howto/helm_install_icp.html#helm-install).
+1. Before you can install an orderer on {{site.data.keyword.cloud_notm}} Private, you must [install {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-icp-setup#icp-setup) and [install the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-helm-install#helm-install).
 
 2. If you use the Community Edition and you want to run this Helm chart on an {{site.data.keyword.cloud_notm}} Private cluster without Internet connectivity, you need to create archives on an Internet-connected machine before you can install the archives on your {{site.data.keyword.cloud_notm}} Private cluster. For more information, see [Adding featured applications to clusters without Internet connectivity](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.2/app_center/add_package_offline.html){: external}. Note that you can find the specification file `manifest.yaml` under ibm-blockchain-platform-dev/ibm_cloud_pak in the Helm chart.
 
 3. Retrieve the value of the cluster Proxy IP address of your CA from the {{site.data.keyword.cloud_notm}} Private console. **Note:** You will need to be a [Cluster administrator](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.1.2/user_management/assign_role.html){: external} to access your proxy IP. Log in to the {{site.data.keyword.cloud_notm}} Private cluster. In the left navigation panel, click **Platform** and then **Nodes** to view the nodes that are defined in the cluster. Click the node with the role `proxy` and then copy the value of the `Host IP` from the table. **Important:** Save this value and you will use it when you configure the `Proxy IP` field of the Helm chart.
 
-4. Create an [orderer configuration file and store it as a Kubernetes secret in {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto/orderer_deploy_icp.html#icp-orderer-deploy-config-file).
+4. Create an [orderer configuration file and store it as a Kubernetes secret in {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-deploy#icp-orderer-deploy-config-file).
 
 ## Creating an orderer configuration file
 {: #icp-orderer-deploy-config-file}
 
-Before you deploy an orderer, you need to create a configuration file containing important information about the orderer identity and your CA. Then, you need to pass this file to the Helm chart during configuration by using a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external} object. This file will allow the orderer to get the certificates that it needs from the CA to join a blockchain network. It also contains an admin certificate that will allow you to operate the orderer as an admin user. Follow the instructions on [using the CA to deploy an orderer or peer](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-deploy-orderer-peer) before you configure the orderer.
+Before you deploy an orderer, you need to create a configuration file containing important information about the orderer identity and your CA. Then, you need to pass this file to the Helm chart during configuration by using a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external} object. This file will allow the orderer to get the certificates that it needs from the CA to join a blockchain network. It also contains an admin certificate that will allow you to operate the orderer as an admin user. Follow the instructions on [using the CA to deploy an orderer or peer](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-deploy-orderer-peer) before you configure the orderer.
 
 You need to provide the CSR hostnames to the configuration file. The CSR hostnames include the proxy IP address of the cluster where you will deploy the component as well the service host name that will be your Helm chart host name. The `service host name` is based on the `helm release name` that you specify during deployment. The `service host name` is the `helm_release_name` that you specify with the string `-orderer` added at the end. For example, if you specify a `helm release name` of `orderer1`, you can insert the following value in the `"csr"` section of the file:
 
@@ -127,9 +127,9 @@ After you create your orderer configuration secret object, you can configure and
 1. Log in to the {{site.data.keyword.cloud_notm}} Private console and click the **Catalog** link in the upper-right corner.
 2. Click `Blockchain` in the left navigation panel to locate the tile labelled `ibm-blockchain-platform-prod` or `ibm-blockchain-platform-dev` if you downloaded the Community edition. Click the tile to open it and you can see a Readme file that includes information about installing and configuring the Helm chart.
 3. Click the **Configuration** tab on the top of the panel or click the **Configure** button in the lower-right corner.
-4. Specify the values for the [General configuration  parameters](/docs/services/blockchain-icp-102/howto/orderer_deploy_icp.html#icp-orderer-configuration-parms) and accept the license agreement.
-5. Open the `All parameters` twistie and specify the value for the [Global configuration parameters](/docs/services/blockchain-icp-102/howto/orderer_deploy_icp.html#icp-orderer-deploy-global-parameters).
-6. Scroll down to the **Orderer configuration** section. Select the `Install Orderer` check box and complete the [configuration settings](/docs/services/blockchain-icp-102/howto/orderer_deploy_icp.html#icp-orderer-deploy-parameters) for the orderer.
+4. Specify the values for the [General configuration  parameters](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-deploy#icp-orderer-configuration-parms) and accept the license agreement.
+5. Open the `All parameters` twistie and specify the value for the [Global configuration parameters](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-deploy#icp-orderer-deploy-global-parameters).
+6. Scroll down to the **Orderer configuration** section. Select the `Install Orderer` check box and complete the [configuration settings](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-deploy#icp-orderer-deploy-parameters) for the orderer.
 7. Click **Install**.
 
 
@@ -155,7 +155,7 @@ The following table lists the configurable parameters of the {{site.data.keyword
 |  Parameter     | Description    | Default  | Required |
 | --------------|-----------------|-------|------- |
 |**General parameters**| Parameters that configure the Helm chart | | |
-| `Helm release name`| The name of your helm release. Must begin with a lowercase letter and end with any alphanumeric character, must contain only hyphens and lowercase alphanumeric characters. You must use a unique Helm release name each time you attempt to install a component. **Important:** This value must match the value that you used to generate the 'service host name' for the "hosts" field in your [JSON secret file.](/docs/services/blockchain/howto/orderer_deploy_icp.html#icp-orderer-deploy-config-file) | None | Yes  |
+| `Helm release name`| The name of your helm release. Must begin with a lowercase letter and end with any alphanumeric character, must contain only hyphens and lowercase alphanumeric characters. You must use a unique Helm release name each time you attempt to install a component. **Important:** This value must match the value that you used to generate the 'service host name' for the "hosts" field in your [JSON secret file.](/docs/services/blockchain/howto?topic=blockchain-icp-orderer-deploy#icp-orderer-deploy-config-file) | None | Yes  |
 | `Target namespace`| Choose the Kubernetes namespace to install the Helm chart. | None | Yes |
 | `Target namespace policies`| Displays the pod security policies of the chosen namespace, which must include an **`ibm-privileged-psp`** policy. Otherwise, [bind a PodSecurityPolicy](/docs/services/blockchain?topic=blockchain-icp-setup#icp-setup-psp) to your namespace. | None | No |
 |**Global configuration**| Parameters that apply to all components in the Helm chart|||
@@ -235,4 +235,4 @@ After you complete the configuration parameters and click the **Install** button
 ## Viewing the orderer logs
 {: #icp-orderer-deploy-view-logs}
 
-Component logs can be viewed from the command line by using the [`kubectl CLI commands`](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-kubectl-configure) or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster. For more information, see these [instructions for accessing the logs](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-orderer-view-logs).
+Component logs can be viewed from the command line by using the [`kubectl CLI commands`](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-kubectl-configure) or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster. For more information, see these [instructions for accessing the logs](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-orderer-view-logs).

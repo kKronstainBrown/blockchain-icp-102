@@ -29,9 +29,9 @@ As a general rule, orderer admins are responsible for bootstrapping and maintain
 You need to complete a few prerequisite steps from your {{site.data.keyword.cloud_notm}} Private cluster to operate your orderer.
 
 **Prerequisites:**
-- [Configure your CLIs](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-kubectl-configure)
-- [Retrieve your orderer endpoint information](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-orderer-endpoint)
-- [Download your orderer TLS cert](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-tls-cert)
+- [Configure your CLIs](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-kubectl-configure)
+- [Retrieve your orderer endpoint information](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-orderer-endpoint)
+- [Download your orderer TLS cert](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-tls-cert)
 
 You can then use instructions in this topic to operate your orderer. Note that you will operate your orderer through the command line, which requires to get the `peer` CLI binary. The `peer` CLI binary is downloaded together with the other binaries, such as `configtxlator`. Therefore, many of the commands in this topic start with the word "peer". It's not actually using the peer, but it's just the name of the binary.
 
@@ -109,7 +109,7 @@ You need to target your orderer endpoint to make updates to the orderer system c
 2. Click **Workload** > **Helm Releases**.
 3. Find the name of your Helm Release and open the Helm Release details panel.
 4. Scroll down to the **Notes** section at the bottom of the panel. The **Notes** section includes a set of commands to help you operate your orderer deployment.
-5. If you have not already, follow the instructions to configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-kubectl-configure). You need to use it to interact with your orderer container.
+5. If you have not already, follow the instructions to configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-kubectl-configure). You need to use it to interact with your orderer container.
 6. In your CLI, run the first command in the note, which follows **1. Get the application URL by running these commands:** This command will print out the orderer URL and port, which is similar to following example. Save this URL and you need to use it in future commands to set your Proxy address and external node port.
 
   ```
@@ -129,7 +129,7 @@ You need to download your orderer TLS certificate and pass it to your commands t
 2. Click **Workload** > **Helm Releases**.
 3. Find the name of your Helm Release and open the Helm Release details panel.
 4. Scroll down to the **Notes** section at the bottom of the panel. The **Notes** section includes a set of commands to help you operate your orderer deployment.
-5. If you have not already, follow the instructions to configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-kubectl-configure). You need to use it to interact with your orderer container.
+5. If you have not already, follow the instructions to configure the [kubectl CLI](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-kubectl-configure). You need to use it to interact with your orderer container.
 6. In your CLI, run the third command in the note, which follows **3. Get orderer TLS root cert file**.  This command will save your TLS certificate as the file `cert.pem` on your local machine.
 
   **Note:** Before you run the commands, you can remove `app=orderer` as shown in the command below:
@@ -152,7 +152,7 @@ You need to download your orderer TLS certificate and pass it to your commands t
 
 Switch to the directory where the orderer admin MSP folder is generated. Depending how you followed example steps in this documentation, or how many components you are deploying, you can find the MSP folder in `$HOME/fabric-ca-client/orderer-admin/msp` or `$HOME/fabric-ca-client/peer-admin/msp`
 
-Before you can operate the orderer, you need to do some management of the certificates on your local machine. You also need to ensure that you can access the TLS certificates from the orderer. For more information about the certificates to use, see [Membership Service Providers](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-msp) in [Operating a Certificate Authority on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate).
+Before you can operate the orderer, you need to do some management of the certificates on your local machine. You also need to ensure that you can access the TLS certificates from the orderer. For more information about the certificates to use, see [Membership Service Providers](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-msp) in [Operating a Certificate Authority on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate).
 
 1. Move your orderer admin's signCert to a new folder that is named `admincerts`:
 
@@ -163,7 +163,7 @@ Before you can operate the orderer, you need to do some management of the certif
   ```
   {:codeblock}
 
-2. Ensure that you [download your orderer TLS certificate](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-tls-cert) and can reference it from your command line. If you followed the example commands in this documentation, you can find this TLS cert in the `$HOME/fabric-ca-client/orderer-tls/orderertls.pem` file.
+2. Ensure that you [download your orderer TLS certificate](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-tls-cert) and can reference it from your command line. If you followed the example commands in this documentation, you can find this TLS cert in the `$HOME/fabric-ca-client/orderer-tls/orderertls.pem` file.
 
 You can run a tree command to verify that you have completed these steps. Navigate to the directory where you stored your certificates. A tree command should generate a result similar to the following structure:
 ```
@@ -228,9 +228,9 @@ Note that you can add an organization to a channel without joining the system ch
 
 The following list shows the general steps and the tasks will be performed by different sets of organizations of your consortium.
 
-1. Each organization to join the consortium needs to [prepare an organization definition](/docs/services/blockchain-icp-102/howto/peer_operate_icp.html#icp-peer-operate-organization-definition).
-2. The orderer organization admin [forms the consortium](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-consortium) by adding organizations to the orderer system channel.
-3. Any organization of the consortium can [create a new channel](/docs/services/bloblockchain-icp-102ckchain/howto/peer_operate_icp.html#icp-peer-operate-channeltx) by preparing a channel configuration transaction.
+1. Each organization to join the consortium needs to [prepare an organization definition](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-peer-operate#icp-peer-operate-organization-definition).
+2. The orderer organization admin [forms the consortium](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-consortium) by adding organizations to the orderer system channel.
+3. Any organization of the consortium can [create a new channel](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-peer-operate#icp-peer-operate-channeltx) by preparing a channel configuration transaction.
 
 ## Getting the Fabric tools
 {: #icp-orderer-operate-get-fabric-tools}
@@ -276,7 +276,7 @@ You need to download the following Hyperledger Fabric tools to update the system
 ## Creating an organization definition
 {: #icp-orderer-operate-org-definition}
 
-The **definition** of an organization contains the organization name (MSP ID) and the relevant certificates. The system channel and application channels will use this definition to include your organization in the policies that control channel creation, updates, and transaction endorsement. Each organization that wants to join the consortium need to complete this step. To learn more, see [preparing an organization definition](/docs/services/blockchain-icp-102/howto/peer_operate_icp.html#icp-peer-operate-organization-definition).
+The **definition** of an organization contains the organization name (MSP ID) and the relevant certificates. The system channel and application channels will use this definition to include your organization in the policies that control channel creation, updates, and transaction endorsement. Each organization that wants to join the consortium need to complete this step. To learn more, see [preparing an organization definition](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-peer-operate#icp-peer-operate-organization-definition).
 
 ## Forming the Consortium
 {: #icp-orderer-operate-consortium}
@@ -301,7 +301,7 @@ Recall the high-level flow for forming a consortium:
 
 ### Getting the organization definitions
 
-The orderer needs to receive the [organization definitions](/docs/services/blockchain-icp-102/howto/peer_operate_icp.html#icp-peer-operate-organization-definition) from members who want to join the consortium. This needs to be completed in an out of band operation with other members sending you the JSON files that include their MSP ID and crypto material. For reference in the commands below, we assume that you have created a folder that is named `org-definitions` and placed all of the relevant files in that directory.
+The orderer needs to receive the [organization definitions](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-peer-operate#icp-peer-operate-organization-definition) from members who want to join the consortium. This needs to be completed in an out of band operation with other members sending you the JSON files that include their MSP ID and crypto material. For reference in the commands below, we assume that you have created a folder that is named `org-definitions` and placed all of the relevant files in that directory.
 
 ### Fetching the genesis block of the system channel
 
@@ -338,8 +338,8 @@ The orderer needs to receive the [organization definitions](/docs/services/block
 
     - Replace `<CORE_PEER_MSPCONFIGPATH>` with the path to the admin MSP folder of the orderer organization.
     - Replace `<CORE_PEER_TLS_ROOTCERT_FILE>` with the path to the TLS CA cert.
-    - Replace `<PROXY_IP>` with the proxy ip address from [orderer endpoint information](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-orderer-endpoint)
-    - Replace `<EXTERNAL_NODE_PORT>` with the external node port from [orderer endpoint information](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-orderer-endpoint)
+    - Replace `<PROXY_IP>` with the proxy ip address from [orderer endpoint information](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-orderer-endpoint)
+    - Replace `<EXTERNAL_NODE_PORT>` with the external node port from [orderer endpoint information](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-orderer-endpoint)
 
   Your environment variables might look like the following example:
 
@@ -375,7 +375,7 @@ The orderer needs to receive the [organization definitions](/docs/services/block
   ```
   {:codeblock}
 
-  Replace `<orderer_TLS_root_cert_file>` with the path to the `orderertls.pem` file that you created in this [step](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-tls-cert). For example, your command might look like the following example:
+  Replace `<orderer_TLS_root_cert_file>` with the path to the `orderertls.pem` file that you created in this [step](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-tls-cert). For example, your command might look like the following example:
 
   ```
   peer channel fetch config ./configupdate/genesis.pb -o $PROXY:$ORDERER_PORT -c $CHANNEL_NAME --tls  --cafile $HOME/fabric-ca-client/orderer-tls/orderertls.pem
@@ -394,11 +394,11 @@ The orderer needs to receive the [organization definitions](/docs/services/block
 ### Creating the system channel update
 {: #icp-orderer-operate-system-channel-update}
 
-The downloaded [Fabric tool](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-get-fabric-tools) `configtxtlator` translates the protobuf format of a channel configuration to the JSON format, and vice versa.
+The downloaded [Fabric tool](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-get-fabric-tools) `configtxtlator` translates the protobuf format of a channel configuration to the JSON format, and vice versa.
 
 These steps follow the general flow of the channel update tutorial about [converting the block into JSON format](https://hyperledger-fabric.readthedocs.io/en/release-1.4/channel_update_tutorial.html#convert-the-configuration-to-json-and-trim-it-down){: external}. You need to make some changes to the commands in the tutorial to reflect the fact that you are updating the orderer system channel rather than an application channel. You can visit the tutorial for more detail on this process. This section simply provides the commands for you.
 
-1. Copy the organization definition JSON file from the folder where you [created your organization](/docs/services/blockchain-icp-102/howto/peer_operate_icp.html#icp-peer-operate-organization-definition) to your `configupdate` folder. In the example command below, the organization definition JSON file is `org1definition.json`:
+1. Copy the organization definition JSON file from the folder where you [created your organization](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-peer-operate#icp-peer-operate-organization-definition) to your `configupdate` folder. In the example command below, the organization definition JSON file is `org1definition.json`:
 
    ```
    cp <path_to_config_folder>/org1definition.json $HOME/fabric-ca-client/org-definitions/configupdate
@@ -414,7 +414,7 @@ These steps follow the general flow of the channel update tutorial about [conver
   ```
   {:codeblock}
 
-3. Run the following command to add the crypto material of an organization to the consortium configuration. Replace <NEWORGMSP> with the organization MSP ID for the [organization that you created](/docs/services/blockchain-icp-102/howto/peer_operate_icp.html#icp-peer-operate-organization-definition).
+3. Run the following command to add the crypto material of an organization to the consortium configuration. Replace <NEWORGMSP> with the organization MSP ID for the [organization that you created](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-peer-operate#icp-peer-operate-organization-definition).
 
   ```
   jq -s '.[0] * {"channel_group":{"groups":{"Consortiums":{"groups":{"SampleConsortium":{"groups": {"<NEWORGMSP>":.[1]}}}}}}}' config.json ./orgdefinition.json > modified_config.json
@@ -511,7 +511,7 @@ If you deploy your peer in another {{site.data.keyword.cloud_notm}} Private clus
   ```
   {:codeblock}
 
-2. Run the following command to add the crypto material of an organization to the consortium configuration. Replace <NEWORGMSP> with the organization MSP ID for the [organization that you created](/docs/services/blockchain-icp-102/howto/peer_operate_icp.html#icp-peer-operate-organization-definition).
+2. Run the following command to add the crypto material of an organization to the consortium configuration. Replace <NEWORGMSP> with the organization MSP ID for the [organization that you created](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-peer-operate#icp-peer-operate-organization-definition).
 
   ```
   jq -s '.[0] * {"channel_group":{"groups":{"Consortiums":{"groups":{"SampleConsortium":{"groups": {"<NEWORGMSP>":.[1]}}}}}}}' config.json ./orgdefinition.json > modified_config.json
@@ -558,7 +558,7 @@ If you deploy your peer in another {{site.data.keyword.cloud_notm}} Private clus
 ## Viewing the orderer logs
 {: #icp-orderer-operate-orderer-view-logs}
 
-Component logs can be viewed from the command line by using the [`kubectl CLI commands`](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate-kubectl-configure) or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster.
+Component logs can be viewed from the command line by using the [`kubectl CLI commands`](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate-kubectl-configure) or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster.
 
 - Use the `kubectl logs` command to view the container logs inside the pod. If you are unsure of your pod name, run the following command to view your list of pods.
 

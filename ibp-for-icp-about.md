@@ -101,7 +101,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.c
 ### License
 {: #ibp-icp-about-license}
 
-{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private delivers the components needed to run a blockchain network on your own infrastructure and is deployed as an {{site.data.keyword.cloud_notm}} Private application. You can access PPA and [download the Helm chart](/docs/services/blockchain-icp-102/howto/helm_install_icp.html#helm-install). Technical support from {{site.data.keyword.blockchainfull_notm}} is included in the purchase.
+{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private delivers the components needed to run a blockchain network on your own infrastructure and is deployed as an {{site.data.keyword.cloud_notm}} Private application. You can access PPA and [download the Helm chart](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-helm-install#helm-install). Technical support from {{site.data.keyword.blockchainfull_notm}} is included in the purchase.
 
 {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private Community Edition is a free offering that is suitable for evaluation and experimentation and is deployed as an {{site.data.keyword.cloud_notm}} Private application. Do not use the Community Edition for production. {{site.data.keyword.blockchainfull_notm}} Platform does not provide support for the Community Edition. You can access the [GitHub package](https://github.com/IBM/charts/blob/master/repo/stable/ibm-blockchain-platform-dev-1.0.2.tgz){: external} and download the Helm chart.
 
@@ -122,18 +122,18 @@ For more information about how to determine your usage of VPCs, see this article
 
 - {{site.data.keyword.blockchainfull_notm}} Platform Community edition is meant for exploration, development, and testing. This free version of {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private can be accessed through GitHub. **Note:** {{site.data.keyword.blockchainfull_notm}} Platform does not provide support for the Community Edition.
 
-For instructions on how to install the Helm chart and the necessary prerequisites, see [Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto/helm_install_icp.html#helm-install).
+For instructions on how to install the Helm chart and the necessary prerequisites, see [Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-helm-install#helm-install).
 
-If you are a new user of {{site.data.keyword.cloud_notm}} Private and would like information and tips on installing and deploying {{site.data.keyword.cloud_notm}} Private, see [Setting up {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/ICP_setup.html#icp-setup).
+If you are a new user of {{site.data.keyword.cloud_notm}} Private and would like information and tips on installing and deploying {{site.data.keyword.cloud_notm}} Private, see [Setting up {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-icp-setup#icp-setup).
 
-After you install {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private, you need to deploy each component of your network individually. You cannot deploy multiple components at the same time. See the [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/ibp_for_icp_deployment_guide.html#get-started-icp) to learn the best practices for building or joining a blockchain network. Then, review the steps to deploy and operate the individual components in the following sections.
+After you install {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private, you need to deploy each component of your network individually. You cannot deploy multiple components at the same time. See the [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-get-started-icp#get-started-icp) to learn the best practices for building or joining a blockchain network. Then, review the steps to deploy and operate the individual components in the following sections.
 
 ### Installing {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private behind a firewall
 {: #ibp-icp-about-firewall}
 
 You can deploy the {{site.data.keyword.blockchainfull_notm}} Platform components behind a firewall, without having access to the public Internet. The downloaded Helm chart package includes all of the Fabric component Docker images that {{site.data.keyword.blockchainfull_notm}} Platform uses, without pulling them from DockerHub during deployment.
 
-The {{site.data.keyword.blockchainfull_notm}} Platform Community edition Helm chart package does not include the necessary Fabric component Docker images. It is configured to download those images from DockerHub during deployment and will fail without having access to the public Internet. However, you can take a few additional steps to deploy the Community Edition components behind a firewall. For more information, see [Installing the Community Edition behind a firewall](/docs/services/blockchain-icp-102/howto/helm_install_icp.html#helm-install-prereqs-firewall).
+The {{site.data.keyword.blockchainfull_notm}} Platform Community edition Helm chart package does not include the necessary Fabric component Docker images. It is configured to download those images from DockerHub during deployment and will fail without having access to the public Internet. However, you can take a few additional steps to deploy the Community Edition components behind a firewall. For more information, see [Installing the Community Edition behind a firewall](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-helm-install#helm-install-prereqs-firewall).
 
 
 ## About Certificate Authorities on {{site.data.keyword.cloud_notm}} Private
@@ -143,9 +143,9 @@ Certificate authorities (CAs) provide identity on the network. A CA can be consi
 
 The CA will validate the identity and issue certificates for the other components in your network that you need to deploy. As a result, you need to deploy a CA for your organization before you deploy other components.
 
-- To learn how to configure and deploy a CA after installing the Helm chart, see [Deploying a Certificate Authority in {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto/CA_deploy_icp.html#ca-deploy).
+- To learn how to configure and deploy a CA after installing the Helm chart, see [Deploying a Certificate Authority in {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-deploy#ca-deploy).
 
-- To learn how to use your CA to generate certificates and complete the prerequisite steps to deploy additional components, see [Operating a Certificate Authority in {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate).
+- To learn how to use your CA to generate certificates and complete the prerequisite steps to deploy additional components, see [Operating a Certificate Authority in {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate).
 
 ## About orderers on {{site.data.keyword.cloud_notm}} Private
 {: #ibp-icp-about-orderer}
@@ -154,21 +154,21 @@ Orderers authenticate clients, order transactions, and broadcast transactions in
 
 If you are building a blockchain network, you need to deploy an orderer. After it has been deployed, you can invite other organizations to your consortium, which can then create channels of their own.
 
-- To learn how to configure and deploy an orderer after you install the Helm chart, see [Deploying an orderer on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto/orderer_deploy_icp.html#icp-orderer-deploy).
+- To learn how to configure and deploy an orderer after you install the Helm chart, see [Deploying an orderer on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-deploy#icp-orderer-deploy).
 
-- To learn how to build a consortium, see [Operating an orderer on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto/orderer_operate.html#icp-orderer-operate).
+- To learn how to build a consortium, see [Operating an orderer on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-orderer-operate#icp-orderer-operate).
 
 ## About peers on {{site.data.keyword.cloud_notm}} Private
 {: #ibp-icp-about-peer}
 
 Peers are a fundamental element of the network because they host ledgers and smart contracts. Smart contracts and ledgers are used to encapsulate the shared processes and shared information in a network, respectively. For more information about peers and the role that they play in a blockchain network, see [Blockchain component overview](/docs/services/blockchain-icp-102?topic=blockchain-blockchain-component-overview).
 
-- When you are ready to join a network, you can deploy a peer that will join channels, endorse transactions, and store the channel ledgers. For information about deploying a peer on {{site.data.keyword.cloud_notm}} Private that will connect to other components on {{site.data.keyword.cloud_notm}} Private, see [Deploying a peer on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto/peer_deploy_icp.html#icp-peer-deploy). For information about deploying a peer on {{site.data.keyword.cloud_notm}} Private that will connect to a Starter or Enterprise Plan network, see [Deploying a peer that will connect to Starter or Enterprise](/docs/services/blockchain-icp-102/howto/peer_deploy_ibp.html#ibp-peer-deploy).
+- When you are ready to join a network, you can deploy a peer that will join channels, endorse transactions, and store the channel ledgers. For information about deploying a peer on {{site.data.keyword.cloud_notm}} Private that will connect to other components on {{site.data.keyword.cloud_notm}} Private, see [Deploying a peer on {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-peer-deploy#icp-peer-deploy). For information about deploying a peer on {{site.data.keyword.cloud_notm}} Private that will connect to a Starter or Enterprise Plan network, see [Deploying a peer that will connect to Starter or Enterprise](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-deploy#ibp-peer-deploy).
 
 - After you set up the peer, you need to complete several operational steps before you can submit transactions and read the distributed ledger from the blockchain network.
 
-  - If you are connecting your peer to an {{site.data.keyword.blockchainfull_notm}} Platform deployed on {{site.data.keyword.cloud_notm}} Private, see [Operating peers on {{site.data.keyword.cloud_notm}} Private with a Multi-cloud Network](/docs/services/blockchain-icp-102/howto/peer_operate_icp.html#icp-peer-operate).
-  - If you are connecting your peer to a Starter Plan or Enterprise Plan network that is deployed on {{site.data.keyword.cloud_notm}}, see [Operating peers on {{site.data.keyword.cloud_notm}} Private with Starter Plan or Enterprise Plan](/docs/services/blockchain-icp-102/howto/peer_operate_ibp.html#ibp-peer-operate).
+  - If you are connecting your peer to an {{site.data.keyword.blockchainfull_notm}} Platform deployed on {{site.data.keyword.cloud_notm}} Private, see [Operating peers on {{site.data.keyword.cloud_notm}} Private with a Multi-cloud Network](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-icp-peer-operate#icp-peer-operate).
+  - If you are connecting your peer to a Starter Plan or Enterprise Plan network that is deployed on {{site.data.keyword.cloud_notm}}, see [Operating peers on {{site.data.keyword.cloud_notm}} Private with Starter Plan or Enterprise Plan](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ibp-peer-operate#ibp-peer-operate).
 
 ## Security Considerations
 {: #ibp-icp-about-security}
@@ -192,7 +192,7 @@ Data residency requirements can mandate that the processing and storage of all b
 
 Key management is a critical aspect of security. If a private key is compromised or lost, hostile actors might be able to access your data and functionality. {{site.data.keyword.IBM_notm}} uses physical appliances that are called [Hardware Security Modules](/docs/services/blockchain-icp-102?topic=blockchain-glossary#glossary-hsm) (HSM) to store the private keys of {{site.data.keyword.blockchainfull_notm}} Platform Enterprise Plan networks.
 
-When you deploy a component on {{site.data.keyword.cloud_notm}} Private, you are responsible for managing your private keys. Although {{site.data.keyword.blockchainfull_notm}} Platform generates private keys, those keys are not stored on the Platform. It is essential to store your keys securely so that they are not compromised. You can find the private key of your component in the keystore folder of your peer MSP, at the `/mnt/crypto/peer/peer/msp/keystore/` directory within your component. For more information about the certificates inside your peer, see the [Membership Services Provider](/docs/services/blockchain/certificates.html#managing-certificates-msp) section of the [Managing certificates on {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain/certificates.html#managing-certificates) tutorial.
+When you deploy a component on {{site.data.keyword.cloud_notm}} Private, you are responsible for managing your private keys. Although {{site.data.keyword.blockchainfull_notm}} Platform generates private keys, those keys are not stored on the Platform. It is essential to store your keys securely so that they are not compromised. You can find the private key of your component in the keystore folder of your peer MSP, at the `/mnt/crypto/peer/peer/msp/keystore/` directory within your component. For more information about the certificates inside your peer, see the [Membership Services Provider](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp) section of the [Managing certificates on {{site.data.keyword.blockchainfull_notm}} Platform](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates) tutorial.
 
 You can use Key Escrow to recover lost private keys. This needs to be performed prior to the loss of any keys. If a private key cannot be recovered, you need to get new private keys by registering a new identity with your Certificate Authority. You should also remove and replace your signCert from any channels that you joined.
 
@@ -204,7 +204,7 @@ You can use Key Escrow to recover lost private keys. This needs to be performed 
 ### Membership Service Provider configuration
 {: #ibp-icp-about-security-MSP}
 
-Components of {{site.data.keyword.blockchainfull_notm}} Platform consume identities via Membership Service Providers (MSPs). MSPs associate the certificates that the CAs issue with network and channel roles. For more information about how MSPs work with the peer, see [Membership Service Providers (MSPs)](/docs/services/blockchain/certificates.html#managing-certificates-msp).
+Components of {{site.data.keyword.blockchainfull_notm}} Platform consume identities via Membership Service Providers (MSPs). MSPs associate the certificates that the CAs issue with network and channel roles. For more information about how MSPs work with the peer, see [Membership Service Providers (MSPs)](/docs/services/blockchain?topic=blockchain-managing-certificates#managing-certificates-msp).
 
 ### Application security
 {: #ibp-icp-about-security-appl}
@@ -220,7 +220,7 @@ To address data residency requirements, it is important to understand the Hyperl
 
 Additionally, client applications use the [Fabric SDKs](https://hyperledger-fabric.readthedocs.io/en/release-1.3/getting_started.html#hyperledger-fabric-sdks){: external} to send transactions to the peers and ordering service. These transactions include [read-write set](https://hyperledger-fabric.readthedocs.io/en/release-1.4/readwrite.html){: external} data, which contains the key-value pairs on the ledger.
 
-If in-country data residency is a requirement, the orderer, peers, and client applications must reside in the same country. When an {{site.data.keyword.blockchainfull_notm}} Platform network is created in {{site.data.keyword.cloud_notm}}, you have the choice of selecting a location for the network. <!--For a Starter Plan network, you can select from US South, United Kingdom, and Sydney. For an Enterprise Plan network, you can select from currently available locations, which include Dallas, Frankfurt, London, Sao Paulo, Tokyo, and Toronto. -->For more information about regions and locations, see [{{site.data.keyword.blockchainfull_notm}} Platform regions and locations](/docs/services/blockchain/reference/ibp_regions.html#ibp-regions-locations).
+If in-country data residency is a requirement, the orderer, peers, and client applications must reside in the same country. When an {{site.data.keyword.blockchainfull_notm}} Platform network is created in {{site.data.keyword.cloud_notm}}, you have the choice of selecting a location for the network. <!--For a Starter Plan network, you can select from US South, United Kingdom, and Sydney. For an Enterprise Plan network, you can select from currently available locations, which include Dallas, Frankfurt, London, Sao Paulo, Tokyo, and Toronto. -->For more information about regions and locations, see [{{site.data.keyword.blockchainfull_notm}} Platform regions and locations](/docs/services/blockchain/reference?topic=blockchain-ibp-regions-locations#ibp-regions-locations).
 
 ### A use case for data residency
 
@@ -258,7 +258,7 @@ You can get more information about these technologies in the white paper about [
 ## Getting support
 {: #ibp-icp-about-support}
 
-For information on digital support offerings, refer to the {{site.data.keyword.blockchainfull_notm}} Platform support [resources and support forums](/docs/services/blockchain-icp-102/ibmblockchain_support.html#blockchain-support-resources).
+For information on digital support offerings, refer to the {{site.data.keyword.blockchainfull_notm}} Platform support [resources and support forums](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-blockchain-support#blockchain-support-resources).
 
 ### {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} Private
 
@@ -268,6 +268,6 @@ If you have purchased an {{site.data.keyword.blockchainfull_notm}} Platform for 
 
 The Community Edition is intended for exploration, development, and testing. {{site.data.keyword.blockchainfull_notm}} Platform does not provide support for the {{site.data.keyword.blockchainfull_notm}} Platform Community Edition.
 
-If you encounter issues that are related to your blockchain components, you can use free blockchain developer resources and support forums and get help from {{site.data.keyword.IBM_notm}} and the Fabric community. For more information, see [blockchain resources and support forums](/docs/services//blockchain-icp-102/ibmblockchain_support.html#blockchain-support-resources).
+If you encounter issues that are related to your blockchain components, you can use free blockchain developer resources and support forums and get help from {{site.data.keyword.IBM_notm}} and the Fabric community. For more information, see [blockchain resources and support forums](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-blockchain-support#blockchain-support-resources).
 
 For issues that are related to {{site.data.keyword.cloud_notm}} Private, you can take advantage of both [free digital support and paid support that {{site.data.keyword.cloud_notm}} Private offers](https://www.ibm.com/developerworks/community/blogs/fe25b4ef-ea6a-4d86-a629-6f87ccf4649e/entry/Learn_more_about_IBM_Cloud_Private_Support?lang=en_us).

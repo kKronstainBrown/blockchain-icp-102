@@ -26,7 +26,7 @@ subcollection: blockchain
 After you import the {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} Private Helm chart, you can deploy the individual components. The Certificate Authority (CA) is the root of trust for your organization and allows you to generate credentials for the other components you will deploy. As a result, you need to deploy a CA before you deploy the other components. Each organization in a multi-cloud blockchain network must deploy its own CA.  For more information about CAs and the role that they play in a blockchain network, see [Certificate Authorities](/docs/services/blockchain-icp-102?topic=blockchain-blockchain-component-overview#blockchain-blockchain-component-overview-ca).
 {:shortdesc}
 
-Before you deploy a Certificate Authority, review the [Considerations and limitations](/docs/services/blockchain-icp-102/ibp-for-icp-about.html#ibp-icp-about-considerations).
+Before you deploy a Certificate Authority, review the [Considerations and limitations](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-ibp-icp-about#ibp-icp-about-considerations).
 
 ## Resources required
 {: #ca-deploy-resources-required}
@@ -56,7 +56,7 @@ If you do not use dynamic provisioning, [Persistent Volumes](https://kubernetes.
 ## Prerequisites for deploying a CA
 {: #ca-deploy-prerequisites}
 
-1. Before you can install a CA on {{site.data.keyword.cloud_notm}} Private, you must [install {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102/ICP_setup.html#icp-setup) and [install the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart](/docs/services/blockchain-icp-102/howto/helm_install_icp.html#helm-install).
+1. Before you can install a CA on {{site.data.keyword.cloud_notm}} Private, you must [install {{site.data.keyword.cloud_notm}} Private](/docs/services/blockchain-icp-102?topic=blockchain-icp-102-icp-setup#icp-setup) and [install the {{site.data.keyword.blockchainfull_notm}} Platform Helm chart](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-helm-install#helm-install).
 
 2. If you use the Community Edition and you want to run this Helm chart on an {{site.data.keyword.cloud_notm}} Private cluster without Internet connectivity, you need to create archives on an Internet-connected machine before you can install the archives on your {{site.data.keyword.cloud_notm}} Private cluster. For more information, see [Adding featured applications to clusters without Internet connectivity](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.2/app_center/add_package_offline.html){: external}. Note that you can find the specification file manifest.yaml under ibm-blockchain-platform-dev/ibm_cloud_pak in the Helm chart.
 
@@ -65,7 +65,7 @@ If you do not use dynamic provisioning, [Persistent Volumes](https://kubernetes.
   Save this value and you will use it when you configure the `Proxy IP` field of the Helm chart.
   {:important}
 
-4. Create the CA admin user name and password and store them inside a secret object in {{site.data.keyword.cloud_notm}} Private. You can find the steps to create the secret in the [next section](/docs/services/blockchain-icp-102/howto/CA_deploy_icp.html#ca-deploy-admin-secret).
+4. Create the CA admin user name and password and store them inside a secret object in {{site.data.keyword.cloud_notm}} Private. You can find the steps to create the secret in the [next section](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-deploy#ca-deploy-admin-secret).
 
 ## Creating CA admin secret
 {: #ca-deploy-admin-secret}
@@ -114,9 +114,9 @@ After you create your CA admin secret, you can use the following steps to config
 1. Log in to the {{site.data.keyword.cloud_notm}} Private console and click the **Catalog** link in the upper-right corner.
 2. Click `Blockchain` in the left navigation panel to locate the tile labelled `ibm-blockchain-platform-prod` or `ibm-blockchain-platform-dev` if you downloaded the Community edition. Click the tile to open it and you can see a Readme file that includes information about installing and configuring the Helm chart.
 3. Click the **Configuration** tab on the top of the panel or click the **Configure** button in the lower-right corner.
-4. Specify the values for the [General configuration parameters](/docs/services/blockchain-icp-102/howto/CA_deploy_icp.html#ca-deploy-global-parameters) and accept the license agreement.
-5. Open the `All parameters` twistie and specify the value for the [Global configuration parameters](/docs/services/blockchain-icp-102/howto/CA_deploy_icp.html#ca-deploy-global-parameters).
-6. Scroll down to the **CA configuration** section. Select the `Install CA` check box and complete the [configuration settings](/docs/services/blockchain-icp-102/howto/CA_deploy_icp.html#ca-deploy-parameters) for the CA.  
+4. Specify the values for the [General configuration parameters](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-deploy#ca-deploy-global-parameters) and accept the license agreement.
+5. Open the `All parameters` twistie and specify the value for the [Global configuration parameters](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-deploy#ca-deploy-global-parameters).
+6. Scroll down to the **CA configuration** section. Select the `Install CA` check box and complete the [configuration settings](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-deploy#ca-deploy-parameters) for the CA.  
 7. Click **Install**.
 
 ### Configuration parameters
@@ -208,7 +208,7 @@ You can create a new `yaml` file by editing `values.yaml` that is included in th
 
 After you complete the configuration parameters and click the **Install** button, click the **View Helm Release** button to view your deployment. If it was successful, you should see the value 1 in the `DESIRED`, `CURRENT`, `UP TO DATE`, and `AVAILABLE` fields in the Deployment table. You may need to click refresh and wait for the table to be updated. You can also find the Deployment table by clicking the **Menu** icon in the upper-left corner in the {{site.data.keyword.cloud_notm}} Private console. From the menu list, click **Workloads** and then **Helm Releases**.
 
-If you scroll down to the `Notes` section, you can find important information that you will use to [operate your CA](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate).
+If you scroll down to the `Notes` section, you can find important information that you will use to [operate your CA](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate).
 
 After you install {{site.data.keyword.blockchainfull_notm}} Platform CA in {{site.data.keyword.cloud_notm}} Private, a configmap is created with default environment variables settings. You can then change or add environment variables for the CA server to configure its behavior. For more information about CA server configuration parameters, see [Fabric CA server documentation](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/users-guide.html#fabric-ca-server){: external}.
 
@@ -217,9 +217,9 @@ After you configure the configmap, you need to restart the CA server before the 
 ## Viewing the CA logs
 {: #ca-deploy-view-logs}
 
-Component logs can be viewed from the command line by using the [`kubectl CLI commands`](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-kubectl-configure) or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster. For more information, see these [instructions for accessing the logs](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate-view-logs).
+Component logs can be viewed from the command line by using the [`kubectl CLI commands`](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-kubectl-configure) or through [Kibana](https://www.elastic.co/products/kibana){: external}, which is included in your {{site.data.keyword.cloud_notm}} Private cluster. For more information, see these [instructions for accessing the logs](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate-view-logs).
 
 ## Operating your CA
 {: #ca-deploy-operate}
 
-Your CA will be the root of trust for your organization. You need to use your CA to generate certificates for your other components.  As a result, before deploying an orderer or a peer, you must [set up your CA and complete several operational steps](/docs/services/blockchain-icp-102/howto/CA_operate.html#ca-operate).
+Your CA will be the root of trust for your organization. You need to use your CA to generate certificates for your other components.  As a result, before deploying an orderer or a peer, you must [set up your CA and complete several operational steps](/docs/services/blockchain-icp-102/howto?topic=blockchain-icp-102-ca-operate#ca-operate).
